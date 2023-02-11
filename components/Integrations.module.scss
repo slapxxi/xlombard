@@ -1,0 +1,7 @@
+.link {
+  @apply cursor-pointer text-blue-base;
+
+  &:hover {
+    @apply text-black;
+  }
+}

@@ -1,0 +1,47 @@
+.link {
+  &:hover {
+    .tile {
+      @apply fill-violet-light;
+    }
+  }
+
+  &[data-checked='true'] {
+    @apply text-white;
+
+    .tile {
+      @apply hidden;
+    }
+
+    .activeTile {
+      @apply block;
+    }
+
+    .icon {
+      @apply translate-y-3 scale-125 duration-300;
+    }
+
+    .text {
+      @apply opacity-0;
+    }
+  }
+}
+
+.backdrop {
+  @apply transition-transform;
+}
+
+.tile {
+  @apply stroke-2;
+}
+
+.activeTile {
+  @apply hidden fill-navy stroke-2;
+}
+
+.text {
+  @apply transition-opacity;
+}
+
+.icon {
+  @apply transition-transform duration-75;
+}

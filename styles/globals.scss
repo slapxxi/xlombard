@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --violet-100: hsl(231, 88%, 95%);
+    --violet: hsl(231, 100%, 90%);
+    --violet-light: hsl(231, 88%, 97%);
+    --blue-light: hsl(213, 100%, 91%);
+    --blue-base-light: hsl(217, 88%, 56%);
+    --green-light: hsl(115, 81%, 94%);
+    --green-medium: hsl(141, 60%, 78%);
+    --green-dark: hsl(141, 70%, 42%);
+    --navy-dark: hsl(216, 46%, 36%);
+  }
+
+  @font-face {
+    font-family: 'Onest';
+    src: url(/fonts/OnestMedium1602-hint.woff) format('woff');
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: 'Onest';
+    src: url(/fonts/OnestBold1602-hint.woff) format('woff');
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: 'Onest';
+    src: url(/fonts/OnestRegular1602-hint.woff) format('woff');
+    font-weight: 400;
+  }
+
+  html,
+  body,
+  #__next {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Onest, sans-serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  em {
+    @apply not-italic text-blue-base;
+  }
+}
+
+@layer components {
+  .cont {
+    @apply mx-auto box-content px-5;
+    max-width: 1200px;
+  }
+
+  .decorate {
+    @apply relative z-0;
+
+    &::before {
+      @apply absolute right-0 top-0 -z-10 translate-x-1 -translate-y-1 bg-violet-light;
+      content: '';
+      width: 50%;
+      height: 100%;
+    }
+  }
+
+  .decorate-center {
+    @apply relative z-0;
+
+    &::before {
+      @apply absolute left-1/2 top-0 -z-10 -translate-x-1/2 bg-violet-light;
+      content: '';
+      width: 30%;
+      height: 100%;
+    }
+  }
+
+  .card-fade-8 {
+    @apply relative;
+
+    &::before {
+      @apply absolute inset-0 -z-10 rounded-lg bg-white/20;
+      content: '';
+      transform: rotate(8deg);
+    }
+  }
+  .-card-fade-8 {
+    @apply relative;
+
+    &::before {
+      @apply absolute inset-0 -z-10 rounded-lg bg-white/20;
+      content: '';
+      transform: rotate(-8deg);
+    }
+  }
+
+  .link {
+    @apply text-blue-base;
+  }
+
+  .acc-item {
+    @apply flex w-full flex-col;
+  }
+
+  .acc-trigger {
+    @apply z-10 ml-4 shrink-0 rounded border-2 border-blue-base bg-white px-4 py-3 text-left text-xs font-medium text-blue-base
+    hover:border-blue-dark hover:text-blue-dark
+    md:ml-0 md:w-full;
+    transform-origin: left;
+
+    &[data-state='open'] {
+      @apply border-navy bg-navy text-white
+      md:w-[120%] md:pr-24;
+    }
+
+    @media screen and (min-width: 768px) {
+      &[data-state='open'] {
+        box-shadow: 22px 22px 16px -15px rgba(0, 68, 173, 0.39);
+      }
+    }
+  }
+
+  .acc-content {
+    @apply -mt-2 md:mt-0;
+  }
+
+  .nav-link {
+    @apply text-black hover:text-blue-base;
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.2s linear;
+  }
+
+  .free {
+    @apply relative;
+
+    &::before {
+      @apply absolute top-4 left-4 rounded-full;
+      content: '';
+      background: theme('colors.green-dark');
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  @keyframes slide-in {
+    0% {
+      transform: translateY(10%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
+
+@layer utilities {
+  .big-shadow {
+    box-shadow: 0px 9.34831px 15.8202px -3.59551px rgba(57, 81, 219, 0.27);
+  }
+
+  .modal-shadow {
+    box-shadow: 0px 4px 60px rgba(6, 58, 118, 0.5);
+  }
+
+  .mb-title {
+    @apply mb-2 md:mb-5;
+  }
+}
+
+html.no-scroll {
+  overflow: hidden !important;
+  overflow-y: scroll !important;
+  height: 100% !important;
+
+  body {
+    overflow: hidden !important;
+    height: 100% !important;
+  }
+}

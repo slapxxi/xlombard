@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Next: Chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "userDataDir": "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir"
+    },
+    {
+      "name": "Attach to Chrome",
+      "port": 9222,
+      "request": "attach",
+      "type": "chrome",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "node",
+      "name": "Next: Node",
+      "request": "attach",
+      "port": 9229
+    },
+    {
+      "name": "Launch Microsoft Edge and open the Edge DevTools",
+      "request": "launch",
+      "type": "vscode-edge-devtools.debug",
+      "url": ""
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Next: Full",
+      "configurations": ["Next: Node", "Attach to Chrome"]
+    }
+  ]
+}
